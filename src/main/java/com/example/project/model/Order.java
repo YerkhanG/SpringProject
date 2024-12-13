@@ -1,14 +1,17 @@
 package com.example.project.model;
 
-import lombok.Data;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-@Data
+@Entity
 public class Order {
+
+    @Id
     private String orderId;
     private String productId;
     private int quantity;
 
-    // Getters and setters
+    // Getters and Setters
     public String getOrderId() {
         return orderId;
     }
@@ -33,4 +36,3 @@ public class Order {
         this.quantity = quantity;
     }
 }
-
