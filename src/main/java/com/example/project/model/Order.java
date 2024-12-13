@@ -7,13 +7,22 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "orders")
 public class Order {
-
     @Id
     private String orderId;
     private String productId;
     private int quantity;
+    private double totalPrice;
 
-    // Getters and Setters
+    // Конструкторы, Getters и Setters
+    public Order() {}
+
+    public Order(String orderId, String productId, int quantity, double totalPrice) {
+        this.orderId = orderId;
+        this.productId = productId;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+    }
+
     public String getOrderId() {
         return orderId;
     }
@@ -36,5 +45,13 @@ public class Order {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

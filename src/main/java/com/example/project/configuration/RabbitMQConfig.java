@@ -19,6 +19,11 @@ public class RabbitMQConfig {
         return new Queue("notifications", true); // Durable queue
     }
     @Bean
+    public Queue paymentsQueue() {
+        return new Queue("payments", true); // Durable queue
+    }
+
+    @Bean
     public Jackson2JsonMessageConverter messageConverter() {
         return new Jackson2JsonMessageConverter();
     }

@@ -2,6 +2,7 @@ package com.example.project.controller;
 
 import com.example.project.model.Order;
 import com.example.project.service.OrderService;
+import com.example.project.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -25,10 +26,12 @@ public class OrderController {
 
     private final RabbitTemplate rabbitTemplate;
     private final OrderService orderService;
+    private final ProductService productService;
 
-    public OrderController(RabbitTemplate rabbitTemplate, OrderService orderService) {
+    public OrderController(RabbitTemplate rabbitTemplate, OrderService orderService, ProductService productService) {
         this.rabbitTemplate = rabbitTemplate;
         this.orderService = orderService;
+        this.productService = productService;
     }
 
     @Operation(summary = "Place an Order")
